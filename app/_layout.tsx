@@ -3,6 +3,7 @@ import { Stack, useRouter } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react'
 import '../global.css'
+import { StatusBar } from 'react-native'
 
 // Set the animation options. This is optional.
 SplashScreen.setOptions({
@@ -29,7 +30,7 @@ export default function RootLayout() {
     if (loaded) {
       SplashScreen.hide()
       // Start the onboarding flow
-      router.replace('/(onboarding)/startup')
+      router.replace('/(auth)/signup')
     }
   }, [loaded])
 
@@ -38,10 +39,12 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-      }}
-    />
+    <>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      />
+    </>
   )
 }
